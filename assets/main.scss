@@ -1,0 +1,44 @@
+// Variables
+$primary-color: #4caf50;
+$primary-hover: #45a049;
+$background-light: #f5f5f5;
+$text-color: #333;
+$border-radius: 8px;
+$transition-speed: 0.3s;
+
+// Global styles
+:root {
+    --primary-color: #{$primary-color};
+    --primary-hover: #{$primary-hover};
+    --background-light: #{$background-light};
+    --text-color: #{$text-color};
+    --border-radius: #{$border-radius};
+    --transition-speed: #{$transition-speed};
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    color: $text-color;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+// Transitions
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity $transition-speed ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+    opacity: 0;
+}
+
+// Container
+.container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 1rem;
+
+}
