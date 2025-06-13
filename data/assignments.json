@@ -1,0 +1,464 @@
+{
+  "assignments": [
+    {
+      "id": 1,
+      "title": "Introduction to Public Speaking",
+      "studentName": "John Smith",
+      "duration": "3:45",
+      "artist": "John Smith",
+      "submittedAt": "2024-03-15, 14:30:22",
+      "audioUrl": "https://audio-uploads-files.s3.us-east-1.amazonaws.com/42ce22ce-9322-4ced-b4bd-4c7e0eb64b30/09e5171e-0f8a-47f8-8128-9e59265c6926.mp3",
+      "instructorFeedback": "Good confidence and clear voice projection. Work on maintaining eye contact with the audience.",
+      "transcript": {
+        "0:00": "No transcript available",
+        "0:15": "Good morning everyone, today I'll be talking about...",
+        "0:45": "The key points I want to emphasize are...",
+        "1:30": "In conclusion, I believe that..."
+      },
+      "aiFeedback": [
+        "Clear pronunciation throughout the speech",
+        "Good pacing and rhythm",
+        "Could improve on vocal variety",
+        "Strong opening and closing statements",
+        "Consider adding more pauses for emphasis"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Business Presentation Skills",
+      "studentName": "Sarah Johnson",
+      "duration": "4:20",
+      "artist": "Sarah Johnson",
+      "submittedAt": "2024-03-14, 16:45:10",
+      "audioUrl": "https://audio-uploads-files.s3.us-east-1.amazonaws.com/42ce22ce-9322-4ced-b4bd-4c7e0eb64b30/09e5171e-0f8a-47f8-8128-9e59265c6926.mp3",
+      "instructorFeedback": "Excellent professional tone. Consider adding more data visualization references.",
+      "transcript": {
+        "0:00": "No transcript available",
+        "0:20": "Our quarterly results show significant growth...",
+        "1:10": "The market analysis indicates...",
+        "2:30": "Moving forward, we plan to..."
+      },
+      "aiFeedback": [
+        "Professional tone maintained throughout",
+        "Clear articulation of business terms",
+        "Good use of transition phrases",
+        "Could improve on technical terminology pronunciation",
+        "Strong emphasis on key metrics"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Storytelling Workshop",
+      "studentName": "Michael Chen",
+      "duration": "5:15",
+      "artist": "Michael Chen",
+      "submittedAt": "2024-03-13, 11:20:45",
+      "audioUrl": "https://audio-uploads-files.s3.us-east-1.amazonaws.com/42ce22ce-9322-4ced-b4bd-4c7e0eb64b30/09e5171e-0f8a-47f8-8128-9e59265c6926.mp3",
+      "instructorFeedback": "Engaging narrative structure. Work on varying your voice tone for different characters.",
+      "transcript": {
+        "0:00": "No transcript available",
+        "0:30": "Once upon a time in a small village...",
+        "1:45": "The old man looked up and said...",
+        "3:20": "And that's how the village learned..."
+      },
+      "aiFeedback": [
+        "Excellent narrative flow",
+        "Good character voice differentiation",
+        "Could improve on emotional expression",
+        "Strong story arc development",
+        "Consider adding more dramatic pauses"
+      ]
+    },
+    {
+      "id": 4,
+      "title": "Debate Practice",
+      "studentName": "Emma Wilson",
+      "duration": "3:55",
+      "artist": "Emma Wilson",
+      "submittedAt": "2024-03-12, 15:10:33",
+      "audioUrl": "https://audio-uploads-files.s3.us-east-1.amazonaws.com/42ce22ce-9322-4ced-b4bd-4c7e0eb64b30/09e5171e-0f8a-47f8-8128-9e59265c6926.mp3",
+      "instructorFeedback": "Strong arguments presented. Work on addressing counter-arguments more effectively.",
+      "transcript": {
+        "0:00": "No transcript available",
+        "0:25": "The evidence clearly shows that...",
+        "1:15": "Contrary to popular belief...",
+        "2:40": "Therefore, we must conclude that..."
+      },
+      "aiFeedback": [
+        "Clear argument structure",
+        "Good use of evidence",
+        "Could improve on rebuttal timing",
+        "Strong logical flow",
+        "Consider adding more rhetorical questions"
+      ]
+    },
+    {
+      "id": 5,
+      "title": "Poetry Reading",
+      "studentName": "David Brown",
+      "duration": "2:45",
+      "artist": "David Brown",
+      "submittedAt": "2024-03-11, 09:45:12",
+      "audioUrl": "https://audio-uploads-files.s3.us-east-1.amazonaws.com/42ce22ce-9322-4ced-b4bd-4c7e0eb64b30/09e5171e-0f8a-47f8-8128-9e59265c6926.mp3",
+      "instructorFeedback": "Beautiful interpretation. Consider emphasizing the emotional undertones more.",
+      "transcript": {
+        "0:00": "No transcript available",
+        "0:15": "The autumn leaves dance...",
+        "0:45": "As the wind whispers secrets...",
+        "1:30": "In the golden afternoon light..."
+      },
+      "aiFeedback": [
+        "Excellent rhythm and pacing",
+        "Good emotional expression",
+        "Could improve on dramatic pauses",
+        "Strong imagery interpretation",
+        "Consider varying voice tone more"
+      ]
+    },
+    {
+      "id": 6,
+      "title": "Technical Presentation",
+      "studentName": "Lisa Anderson",
+      "duration": "4:50",
+      "artist": "Lisa Anderson",
+      "submittedAt": "2024-03-10, 13:25:44",
+      "audioUrl": "https://audio-uploads-files.s3.us-east-1.amazonaws.com/42ce22ce-9322-4ced-b4bd-4c7e0eb64b30/09e5171e-0f8a-47f8-8128-9e59265c6926.mp3",
+      "instructorFeedback": "Clear technical explanations. Consider adding more real-world examples.",
+      "transcript": {
+        "0:00": "No transcript available",
+        "0:30": "The algorithm works by...",
+        "1:45": "When we implement this system...",
+        "3:20": "The results demonstrate that..."
+      },
+      "aiFeedback": [
+        "Clear technical terminology",
+        "Good explanation structure",
+        "Could improve on simplifying complex concepts",
+        "Strong logical flow",
+        "Consider adding more analogies"
+      ]
+    },
+    {
+      "id": 7,
+      "title": "Interview Practice",
+      "studentName": "James Wilson",
+      "duration": "3:30",
+      "artist": "James Wilson",
+      "submittedAt": "2024-03-09, 10:15:22",
+      "audioUrl": "https://audio-uploads-files.s3.us-east-1.amazonaws.com/42ce22ce-9322-4ced-b4bd-4c7e0eb64b30/09e5171e-0f8a-47f8-8128-9e59265c6926.mp3",
+      "instructorFeedback": "Professional responses. Work on being more concise in your answers.",
+      "transcript": {
+        "0:00": "No transcript available",
+        "0:20": "My experience in this field...",
+        "1:10": "I believe my strengths are...",
+        "2:15": "In my previous role..."
+      },
+      "aiFeedback": [
+        "Clear and confident responses",
+        "Good professional tone",
+        "Could improve on answer length",
+        "Strong examples provided",
+        "Consider adding more specific achievements"
+      ]
+    },
+    {
+      "id": 8,
+      "title": "Group Discussion",
+      "studentName": "Maria Garcia",
+      "duration": "4:15",
+      "artist": "Maria Garcia",
+      "submittedAt": "2024-03-08, 14:40:33",
+      "audioUrl": "https://audio-uploads-files.s3.us-east-1.amazonaws.com/42ce22ce-9322-4ced-b4bd-4c7e0eb64b30/09e5171e-0f8a-47f8-8128-9e59265c6926.mp3",
+      "instructorFeedback": "Good participation. Work on building on others' points more effectively.",
+      "transcript": {
+        "0:00": "No transcript available",
+        "0:25": "I agree with the previous point...",
+        "1:30": "Adding to that, I think...",
+        "2:45": "We should also consider..."
+      },
+      "aiFeedback": [
+        "Good listening skills demonstrated",
+        "Clear contribution structure",
+        "Could improve on building consensus",
+        "Strong point development",
+        "Consider adding more supporting evidence"
+      ]
+    },
+    {
+      "id": 9,
+      "title": "Sales Pitch Practice",
+      "studentName": "Robert Taylor",
+      "duration": "3:20",
+      "artist": "Robert Taylor",
+      "submittedAt": "2024-03-07, 11:55:12",
+      "audioUrl": "https://audio-uploads-files.s3.us-east-1.amazonaws.com/42ce22ce-9322-4ced-b4bd-4c7e0eb64b30/09e5171e-0f8a-47f8-8128-9e59265c6926.mp3",
+      "instructorFeedback": "Engaging pitch. Consider addressing potential objections more proactively.",
+      "transcript": {
+        "0:00": "No transcript available",
+        "0:15": "Our product offers unique benefits...",
+        "1:00": "The value proposition is clear...",
+        "2:15": "Let me show you how..."
+      },
+      "aiFeedback": [
+        "Clear value proposition",
+        "Good engagement techniques",
+        "Could improve on objection handling",
+        "Strong closing statements",
+        "Consider adding more customer benefits"
+      ]
+    },
+    {
+      "id": 10,
+      "title": "Academic Presentation",
+      "studentName": "Sophie Martin",
+      "duration": "5:00",
+      "artist": "Sophie Martin",
+      "submittedAt": "2024-03-06, 15:30:45",
+      "audioUrl": "https://audio-uploads-files.s3.us-east-1.amazonaws.com/42ce22ce-9322-4ced-b4bd-4c7e0eb64b30/09e5171e-0f8a-47f8-8128-9e59265c6926.mp3",
+      "instructorFeedback": "Well-researched content. Work on making the methodology section more accessible.",
+      "transcript": {
+        "0:00": "No transcript available",
+        "0:30": "The research methodology...",
+        "1:45": "Our findings indicate...",
+        "3:30": "The implications of this study..."
+      },
+      "aiFeedback": [
+        "Clear academic language",
+        "Good research presentation",
+        "Could improve on methodology explanation",
+        "Strong data interpretation",
+        "Consider adding more visual aids"
+      ]
+    },
+    {
+      "id": 11,
+      "title": "Podcast Interview",
+      "studentName": "Alex Thompson",
+      "duration": "4:40",
+      "artist": "Alex Thompson",
+      "submittedAt": "2024-03-05, 09:20:15",
+      "audioUrl": "https://audio-uploads-files.s3.us-east-1.amazonaws.com/42ce22ce-9322-4ced-b4bd-4c7e0eb64b30/09e5171e-0f8a-47f8-8128-9e59265c6926.mp3",
+      "instructorFeedback": "Natural conversation flow. Work on maintaining consistent audio levels.",
+      "transcript": {
+        "0:00": "No transcript available",
+        "0:20": "Welcome to our podcast...",
+        "1:30": "That's a fascinating point...",
+        "3:15": "Let's dive deeper into..."
+      },
+      "aiFeedback": [
+        "Natural conversation style",
+        "Good question flow",
+        "Could improve on audio consistency",
+        "Strong topic development",
+        "Consider adding more listener engagement"
+      ]
+    },
+    {
+      "id": 12,
+      "title": "Language Learning",
+      "studentName": "Yuki Tanaka",
+      "duration": "3:15",
+      "artist": "Yuki Tanaka",
+      "submittedAt": "2024-03-04, 13:45:30",
+      "audioUrl": "https://audio-uploads-files.s3.us-east-1.amazonaws.com/42ce22ce-9322-4ced-b4bd-4c7e0eb64b30/09e5171e-0f8a-47f8-8128-9e59265c6926.mp3",
+      "instructorFeedback": "Good pronunciation. Work on intonation patterns.",
+      "transcript": {
+        "0:00": "No transcript available",
+        "0:15": "Hello, my name is...",
+        "0:45": "I would like to practice...",
+        "1:30": "Thank you for listening..."
+      },
+      "aiFeedback": [
+        "Clear pronunciation",
+        "Good basic vocabulary",
+        "Could improve on intonation",
+        "Strong sentence structure",
+        "Consider adding more complex phrases"
+      ]
+    },
+    {
+      "id": 13,
+      "title": "News Reporting",
+      "studentName": "Rachel Green",
+      "duration": "3:50",
+      "artist": "Rachel Green",
+      "submittedAt": "2024-03-03, 16:20:45",
+      "audioUrl": "https://audio-uploads-files.s3.us-east-1.amazonaws.com/42ce22ce-9322-4ced-b4bd-4c7e0eb64b30/09e5171e-0f8a-47f8-8128-9e59265c6926.mp3",
+      "instructorFeedback": "Professional delivery. Work on varying your tone for different story elements.",
+      "transcript": {
+        "0:00": "No transcript available",
+        "0:20": "Breaking news this evening...",
+        "1:15": "According to sources...",
+        "2:30": "The impact of this development..."
+      },
+      "aiFeedback": [
+        "Clear news delivery",
+        "Good information structure",
+        "Could improve on emotional tone",
+        "Strong story development",
+        "Consider adding more background context"
+      ]
+    },
+    {
+      "id": 14,
+      "title": "Comedy Routine",
+      "studentName": "Chris Evans",
+      "duration": "4:25",
+      "artist": "Chris Evans",
+      "submittedAt": "2024-03-02, 10:30:15",
+      "audioUrl": "https://audio-uploads-files.s3.us-east-1.amazonaws.com/42ce22ce-9322-4ced-b4bd-4c7e0eb64b30/09e5171e-0f8a-47f8-8128-9e59265c6926.mp3",
+      "instructorFeedback": "Good timing. Work on building up to punchlines more effectively.",
+      "transcript": {
+        "0:00": "No transcript available",
+        "0:25": "So the other day...",
+        "1:30": "You won't believe what happened...",
+        "2:45": "And that's when I realized..."
+      },
+      "aiFeedback": [
+        "Good comedic timing",
+        "Clear joke structure",
+        "Could improve on punchline delivery",
+        "Strong audience engagement",
+        "Consider adding more callbacks"
+      ]
+    },
+    {
+      "id": 15,
+      "title": "Motivational Speech",
+      "studentName": "Daniel Lee",
+      "duration": "5:10",
+      "artist": "Daniel Lee",
+      "submittedAt": "2024-03-01, 14:15:30",
+      "audioUrl": "https://audio-uploads-files.s3.us-east-1.amazonaws.com/42ce22ce-9322-4ced-b4bd-4c7e0eb64b30/09e5171e-0f8a-47f8-8128-9e59265c6926.mp3",
+      "instructorFeedback": "Inspiring content. Work on maintaining energy throughout the speech.",
+      "transcript": {
+        "0:00": "No transcript available",
+        "0:30": "Today, I want to share...",
+        "1:45": "The journey begins with...",
+        "3:30": "Remember, you have the power to..."
+      },
+      "aiFeedback": [
+        "Strong motivational tone",
+        "Good story integration",
+        "Could improve on energy consistency",
+        "Clear message delivery",
+        "Consider adding more personal anecdotes"
+      ]
+    },
+    {
+      "id": 16,
+      "title": "Technical Training",
+      "studentName": "Priya Patel",
+      "duration": "4:35",
+      "artist": "Priya Patel",
+      "submittedAt": "2024-02-29, 11:40:22",
+      "audioUrl": "https://audio-uploads-files.s3.us-east-1.amazonaws.com/42ce22ce-9322-4ced-b4bd-4c7e0eb64b30/09e5171e-0f8a-47f8-8128-9e59265c6926.mp3",
+      "instructorFeedback": "Clear instructions. Work on breaking down complex steps further.",
+      "transcript": {
+        "0:00": "No transcript available",
+        "0:25": "First, we need to...",
+        "1:30": "The next step involves...",
+        "2:45": "Finally, we'll..."
+      },
+      "aiFeedback": [
+        "Clear step-by-step instructions",
+        "Good technical accuracy",
+        "Could improve on step breakdown",
+        "Strong demonstration flow",
+        "Consider adding more troubleshooting tips"
+      ]
+    },
+    {
+      "id": 17,
+      "title": "Radio Show Host",
+      "studentName": "Marcus Johnson",
+      "duration": "4:50",
+      "artist": "Marcus Johnson",
+      "submittedAt": "2024-02-28, 15:25:45",
+      "audioUrl": "https://audio-uploads-files.s3.us-east-1.amazonaws.com/42ce22ce-9322-4ced-b4bd-4c7e0eb64b30/09e5171e-0f8a-47f8-8128-9e59265c6926.mp3",
+      "instructorFeedback": "Engaging personality. Work on smoother transitions between segments.",
+      "transcript": {
+        "0:00": "No transcript available",
+        "0:20": "Welcome to the show...",
+        "1:30": "Coming up next...",
+        "3:15": "Don't forget to tune in..."
+      },
+      "aiFeedback": [
+        "Engaging host personality",
+        "Good segment transitions",
+        "Could improve on timing",
+        "Strong audience interaction",
+        "Consider adding more variety in content"
+      ]
+    },
+    {
+      "id": 18,
+      "title": "Voice Acting",
+      "studentName": "Emma Davis",
+      "duration": "3:40",
+      "artist": "Emma Davis",
+      "submittedAt": "2024-02-27, 09:55:30",
+      "audioUrl": "https://audio-uploads-files.s3.us-east-1.amazonaws.com/42ce22ce-9322-4ced-b4bd-4c7e0eb64b30/09e5171e-0f8a-47f8-8128-9e59265c6926.mp3",
+      "instructorFeedback": "Great character voices. Work on maintaining consistency in character tones.",
+      "transcript": {
+        "0:00": "No transcript available",
+        "0:25": "Character 1: Hello there...",
+        "1:15": "Character 2: Well, I never...",
+        "2:30": "Narrator: And so the story continues..."
+      },
+      "aiFeedback": [
+        "Strong character differentiation",
+        "Good emotional range",
+        "Could improve on voice consistency",
+        "Clear narrative delivery",
+        "Consider adding more character depth"
+      ]
+    },
+    {
+      "id": 19,
+      "title": "Sports Commentary",
+      "studentName": "Mike Wilson",
+      "duration": "4:15",
+      "artist": "Mike Wilson",
+      "submittedAt": "2024-02-26, 13:20:15",
+      "audioUrl": "https://audio-uploads-files.s3.us-east-1.amazonaws.com/42ce22ce-9322-4ced-b4bd-4c7e0eb64b30/09e5171e-0f8a-47f8-8128-9e59265c6926.mp3",
+      "instructorFeedback": "Dynamic delivery. Work on providing more technical analysis.",
+      "transcript": {
+        "0:00": "No transcript available",
+        "0:20": "What a play by the quarterback...",
+        "1:30": "The defense is showing...",
+        "2:45": "This could be a game-changing moment..."
+      },
+      "aiFeedback": [
+        "Energetic commentary style",
+        "Good play-by-play delivery",
+        "Could improve on technical analysis",
+        "Strong game flow description",
+        "Consider adding more player statistics"
+      ]
+    },
+    {
+      "id": 20,
+      "title": "Audiobook Narration",
+      "studentName": "Sophia Chen",
+      "duration": "5:30",
+      "artist": "Sophia Chen",
+      "submittedAt": "2024-02-25, 16:45:30",
+      "audioUrl": "https://audio-uploads-files.s3.us-east-1.amazonaws.com/42ce22ce-9322-4ced-b4bd-4c7e0eb64b30/09e5171e-0f8a-47f8-8128-9e59265c6926.mp3",
+      "instructorFeedback": "Beautiful reading voice. Work on character voice consistency.",
+      "transcript": {
+        "0:00": "No transcript available",
+        "0:30": "Chapter 1: The Beginning...",
+        "1:45": "The old house creaked...",
+        "3:30": "As the story unfolded..."
+      },
+      "aiFeedback": [
+        "Clear and engaging narration",
+        "Good pacing and rhythm",
+        "Could improve on character voices",
+        "Strong emotional delivery",
+        "Consider adding more atmospheric elements"
+      ]
+    }
+  ]
+}
