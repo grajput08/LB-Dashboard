@@ -17,6 +17,9 @@ importers:
       '@rds-vue-ui/rds-dropdown':
         specifier: ^0.1.9
         version: 0.1.9(typescript@5.8.3)
+      '@rds-vue-ui/rds-modal':
+        specifier: ^0.2.13
+        version: 0.2.13(typescript@5.8.3)
       '@rds-vue-ui/rds-pagination':
         specifier: ^0.2.3
         version: 0.2.3(typescript@5.8.3)
@@ -960,6 +963,9 @@ packages:
 
   '@rds-vue-ui/rds-dropdown@0.1.9':
     resolution: {integrity: sha512-a7AIG8rYCWoCab3Li7QpC78YVXgB6pJRd1CV5ta8M+RucfryOZNZaxKDQif+2n8AzIXk9rO8NkzK0FvvpjYosQ==}
+
+  '@rds-vue-ui/rds-modal@0.2.13':
+    resolution: {integrity: sha512-lmB6TuZLwbvfKEmeZFnYQovp/VqBUX+XRXANa7s3DCbFATTMS9IhQ+EwsMrhZ5NO8CqoBhK2OepHULyLD55pkQ==}
 
   '@rds-vue-ui/rds-pagination@0.2.3':
     resolution: {integrity: sha512-RSfFnX++ZJcmHsyEemBT7FhYl8Q0ECiewJukXyP2171KnUm0guWy8KOCLuY1fglHtebtd5r0r9J5hm1OfhOcJQ==}
@@ -7002,6 +7008,14 @@ snapshots:
   '@rds-vue-ui/rds-dropdown@0.1.9(typescript@5.8.3)':
     dependencies:
       '@floating-ui/vue': 1.1.6(vue@3.5.16(typescript@5.8.3))
+      '@vueuse/core': 10.11.1(vue@3.5.16(typescript@5.8.3))
+      vue: 3.5.16(typescript@5.8.3)
+    transitivePeerDependencies:
+      - '@vue/composition-api'
+      - typescript
+
+  '@rds-vue-ui/rds-modal@0.2.13(typescript@5.8.3)':
+    dependencies:
       '@vueuse/core': 10.11.1(vue@3.5.16(typescript@5.8.3))
       vue: 3.5.16(typescript@5.8.3)
     transitivePeerDependencies:

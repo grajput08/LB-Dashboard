@@ -6,8 +6,15 @@
     >
       <h1 class="h4 m-0 text-dark">Student Dashboard</h1>
     </div>
-    <div class="col-4 mb-space-xxs">
-      <SearchComponent v-model="searchQuery" @search="handleSearch" />
+
+    <!-- Search and Filter Row -->
+    <div class="row mb-space-xxs align-items-center">
+      <div class="col-6 col-md-4">
+        <SearchComponent v-model="searchQuery" @search="handleSearch" />
+      </div>
+      <div class="col-6 col-md-2 ms-auto text-end">
+        <FilterButton @filter-change="handleFilterChange" />
+      </div>
     </div>
 
     <!-- Assignments Table -->
@@ -16,11 +23,109 @@
         <thead class="table-light">
           <tr>
             <th scope="col" style="width: 50px"></th>
-            <th scope="col">Assignment Title</th>
-            <th scope="col">Student Name</th>
-            <th scope="col">Duration</th>
-            <th scope="col">Artist</th>
-            <th scope="col">Submitted At</th>
+            <th
+              v-if="selectedColumns.includes('title')"
+              scope="col"
+              @click="sortBy('title')"
+              style="cursor: pointer"
+            >
+              Assignment Title
+              <span>
+                <icon-bars-arrow-up
+                  v-if="sortColumn === 'title' && sortDirection === 'asc'"
+                  class="w-4 h-4"
+                />
+                <icon-bars-arrow-down
+                  v-else-if="sortColumn === 'title' && sortDirection === 'desc'"
+                  class="w-4 h-4"
+                />
+                <icon-arrows-up-down v-else class="w-4 h-4" />
+              </span>
+            </th>
+            <th
+              v-if="selectedColumns.includes('studentName')"
+              scope="col"
+              @click="sortBy('studentName')"
+              style="cursor: pointer"
+            >
+              Student Name
+              <span>
+                <icon-bars-arrow-up
+                  v-if="sortColumn === 'studentName' && sortDirection === 'asc'"
+                  class="w-4 h-4"
+                />
+                <icon-bars-arrow-down
+                  v-else-if="
+                    sortColumn === 'studentName' && sortDirection === 'desc'
+                  "
+                  class="w-4 h-4"
+                />
+                <icon-arrows-up-down v-else class="w-4 h-4" />
+              </span>
+            </th>
+            <th
+              v-if="selectedColumns.includes('duration')"
+              scope="col"
+              @click="sortBy('duration')"
+              style="cursor: pointer"
+            >
+              Duration
+              <span>
+                <icon-bars-arrow-up
+                  v-if="sortColumn === 'duration' && sortDirection === 'asc'"
+                  class="w-4 h-4"
+                />
+                <icon-bars-arrow-down
+                  v-else-if="
+                    sortColumn === 'duration' && sortDirection === 'desc'
+                  "
+                  class="w-4 h-4"
+                />
+                <icon-arrows-up-down v-else class="w-4 h-4" />
+              </span>
+            </th>
+            <th
+              v-if="selectedColumns.includes('artist')"
+              scope="col"
+              @click="sortBy('artist')"
+              style="cursor: pointer"
+            >
+              Artist
+              <span>
+                <icon-bars-arrow-up
+                  v-if="sortColumn === 'artist' && sortDirection === 'asc'"
+                  class="w-4 h-4"
+                />
+                <icon-bars-arrow-down
+                  v-else-if="
+                    sortColumn === 'artist' && sortDirection === 'desc'
+                  "
+                  class="w-4 h-4"
+                />
+                <icon-arrows-up-down v-else class="w-4 h-4" />
+              </span>
+            </th>
+            <th
+              v-if="selectedColumns.includes('submittedAt')"
+              scope="col"
+              @click="sortBy('submittedAt')"
+              style="cursor: pointer"
+            >
+              Submitted At
+              <span>
+                <icon-bars-arrow-up
+                  v-if="sortColumn === 'submittedAt' && sortDirection === 'asc'"
+                  class="w-4 h-4"
+                />
+                <icon-bars-arrow-down
+                  v-else-if="
+                    sortColumn === 'submittedAt' && sortDirection === 'desc'
+                  "
+                  class="w-4 h-4"
+                />
+                <icon-arrows-up-down v-else class="w-4 h-4" />
+              </span>
+            </th>
           </tr>
         </thead>
         <tbody>
@@ -44,11 +149,24 @@
                   />
                 </button>
               </td>
-              <td>{{ assignment.title }}</td>
-              <td class="text-muted">{{ assignment.studentName }}</td>
-              <td>{{ assignment.duration }}</td>
-              <td>{{ assignment.artist }}</td>
-              <td>{{ assignment.submittedAt }}</td>
+              <td v-if="selectedColumns.includes('title')">
+                {{ assignment.title }}
+              </td>
+              <td
+                v-if="selectedColumns.includes('studentName')"
+                class="text-muted"
+              >
+                {{ assignment.studentName }}
+              </td>
+              <td v-if="selectedColumns.includes('duration')">
+                {{ assignment.duration }}
+              </td>
+              <td v-if="selectedColumns.includes('artist')">
+                {{ assignment.artist }}
+              </td>
+              <td v-if="selectedColumns.includes('submittedAt')">
+                {{ assignment.submittedAt }}
+              </td>
             </tr>
             <tr
               v-if="openAccordion === index + (currentPage - 1) * pageSize"
@@ -172,6 +290,7 @@
 
 <script>
 import assignmentsData from "~/data/assignments.json";
+
 export default {
   data() {
     return {
@@ -181,6 +300,16 @@ export default {
       currentPage: 1,
       pageSize: 8,
       searchQuery: "",
+      dateFilter: null,
+      selectedColumns: [
+        "title",
+        "studentName",
+        "duration",
+        "artist",
+        "submittedAt",
+      ],
+      sortColumn: null,
+      sortDirection: "asc",
     };
   },
   computed: {
@@ -216,7 +345,78 @@ export default {
             assignment.studentName.toLowerCase().includes(searchLower)
         );
       }
-      this.currentPage = 1; // Reset to first page when searching
+      this.applyFilters();
+      this.applySorting();
+      this.currentPage = 1;
+    },
+    handleFilterChange(filters) {
+      this.dateFilter = filters?.dateRange || null;
+      this.selectedColumns = filters?.selectedColumns || [
+        "title",
+        "studentName",
+        "duration",
+        "artist",
+        "submittedAt",
+      ];
+      this.applyFilters();
+      this.applySorting();
+      this.currentPage = 1;
+    },
+    applyFilters() {
+      let filtered = [...this.assignments];
+
+      // Apply search filter
+      if (this.searchQuery) {
+        const searchLower = this.searchQuery.toLowerCase();
+        filtered = filtered.filter(
+          (assignment) =>
+            assignment.title.toLowerCase().includes(searchLower) ||
+            assignment.studentName.toLowerCase().includes(searchLower)
+        );
+      }
+
+      // Apply date range filter
+      if (this.dateFilter?.start && this.dateFilter?.end) {
+        const startDate = new Date(this.dateFilter.start);
+        const endDate = new Date(this.dateFilter.end);
+        endDate.setHours(23, 59, 59, 999); // Set to end of day
+
+        filtered = filtered.filter((assignment) => {
+          const submittedDate = new Date(assignment.submittedAt);
+          return submittedDate >= startDate && submittedDate <= endDate;
+        });
+      }
+
+      this.filteredAssignments = filtered;
+      this.applySorting();
+    },
+    sortBy(column) {
+      if (this.sortColumn === column) {
+        this.sortDirection = this.sortDirection === "asc" ? "desc" : "asc";
+      } else {
+        this.sortColumn = column;
+        this.sortDirection = "asc";
+      }
+      this.applySorting();
+    },
+    applySorting() {
+      const column = this.sortColumn;
+      const direction = this.sortDirection;
+      if (!column) return;
+      this.filteredAssignments.sort((a, b) => {
+        let valA = a[column];
+        let valB = b[column];
+        if (column === "submittedAt") {
+          valA = new Date(valA);
+          valB = new Date(valB);
+        } else {
+          valA = valA ? valA.toString().toLowerCase() : "";
+          valB = valB ? valB.toString().toLowerCase() : "";
+        }
+        if (valA < valB) return direction === "asc" ? -1 : 1;
+        if (valA > valB) return direction === "asc" ? 1 : -1;
+        return 0;
+      });
     },
     toggleAccordion(index) {
       if (this.openAccordion === index) {
@@ -227,6 +427,12 @@ export default {
     },
   },
 };
+</script>
+
+<script setup>
+import IconArrowsUpDown from "~icons/heroicons/arrows-up-down";
+import IconBarsArrowUp from "~icons/heroicons/bars-arrow-up";
+import IconBarsArrowDown from "~icons/heroicons/bars-arrow-down";
 </script>
 
 <style scoped>

@@ -2,7 +2,7 @@
   <div class="search-container">
     <div class="input-group shadow-sm">
       <span class="input-group-text bg-white">
-        <Icon name="heroicons:magnifying-glass" class="w-4 h-4" />
+        <icon-magnifying-glass class="w-4 h-4" />
       </span>
       <input
         type="text"
@@ -17,6 +17,7 @@
 
 <script setup lang="ts">
 import { ref, watch } from "vue";
+import IconMagnifyingGlass from "~icons/heroicons/magnifying-glass";
 
 const props = defineProps<{
   modelValue: string;
