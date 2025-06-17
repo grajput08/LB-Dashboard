@@ -7,7 +7,7 @@
       <div class="p-space-xs">
         <div class="mb-space-xs">
           <label class="form-label fw-semibold">Date Range</label>
-          <div class="d-flex gap-2 align-items-center">
+          <div class="d-flex align-items-center">
             <input
               type="date"
               class="form-control"
@@ -23,9 +23,27 @@
             />
           </div>
         </div>
+        <div class="row">
+          <div class="col-6 mb-space-xs">
+            <label class="form-label fw-semibold">Assignments</label>
+            <MultiSelectFilter
+              :assignments="uniqueAssignments"
+              v-model="selectedAssignmentTitles"
+              placeholder="Search assignments..."
+            />
+          </div>
+          <div class="col-6 mb-space-xs">
+            <label class="form-label fw-semibold">Students</label>
+            <MultiSelectFilter
+              :assignments="studentList"
+              v-model="selectedStudentIds"
+              placeholder="Search students..."
+            />
+          </div>
+        </div>
         <div class="mb-space-xs">
           <label class="form-label fw-semibold">Show Columns</label>
-          <div class="d-flex flex-wrap gap-2">
+          <div class="d-flex flex-wrap">
             <div
               v-for="col in columns"
               :key="col.key"
@@ -46,8 +64,8 @@
         </div>
       </div>
       <template #footer>
-        <div class="d-flex justify-content-end gap-2 pt-space-xs">
-          <button class="btn btn-secondary m-space-xxs" @click="clearFilters">
+        <div class="d-flex justify-content-end pt-space-xs">
+          <button class="btn btn-dark-3 m-space-xxs" @click="clearFilters">
             Clear
           </button>
           <button class="btn btn-primary m-space-xxs" @click="applyFilters">
@@ -61,11 +79,19 @@
 
 <script>
 import { RdsModal } from "@rds-vue-ui/rds-modal";
+import MultiSelectFilter from "./MultiSelectFilter.vue";
 
 export default {
   name: "FilterButton",
   components: {
     RdsModal,
+    MultiSelectFilter,
+  },
+  props: {
+    assignments: {
+      type: Array,
+      required: true,
+    },
   },
   data() {
     return {
@@ -88,11 +114,13 @@ export default {
         "artist",
         "submittedAt",
       ],
+      selectedAssignmentTitles: [],
+      selectedStudentIds: [],
       modalProps: {
         title: "Filters",
         titleVariant: "dark-3",
         headerText: "",
-        size: "md",
+        size: "xl",
         centered: true,
         bgVariant: "white",
         overlayColor: "var(--rds-dark-3, #909090)",
@@ -107,6 +135,56 @@ export default {
       },
     };
   },
+  computed: {
+    uniqueAssignments() {
+      // Unique by title
+      const seen = new Set();
+      return this.assignments
+        .filter((a) => {
+          if (seen.has(a.title)) return false;
+          seen.add(a.title);
+          return true;
+        })
+        .map((a) => ({
+          id: a.title, // use title as id for unique selection
+          title: a.title,
+          studentName: a.title, // not used, but required by filter component
+        }));
+    },
+    studentList() {
+      // If no assignment selected, show all students (unique by name)
+      if (!this.selectedAssignmentTitles.length) {
+        const seen = new Set();
+        return this.assignments
+          .filter((a) => {
+            if (seen.has(a.studentName)) return false;
+            seen.add(a.studentName);
+            return true;
+          })
+          .map((a) => ({
+            id: a.studentName,
+            title: a.studentName,
+            studentName: a.studentName,
+          }));
+      }
+      // Show all students who submitted the selected assignment(s)
+      const students = this.assignments.filter((a) =>
+        this.selectedAssignmentTitles.includes(a.title)
+      );
+      const seen = new Set();
+      return students
+        .filter((a) => {
+          if (seen.has(a.studentName)) return false;
+          seen.add(a.studentName);
+          return true;
+        })
+        .map((a) => ({
+          id: a.studentName,
+          title: a.studentName,
+          studentName: a.studentName,
+        }));
+    },
+  },
   methods: {
     hideModal() {
       this.showModal = false;
@@ -117,6 +195,8 @@ export default {
         end: "",
       };
       this.selectedColumns = this.columns.map((col) => col.key);
+      this.selectedAssignmentTitles = [];
+      this.selectedStudentIds = [];
       this.$emit("filter-change", null);
       this.showModal = false;
     },
@@ -124,6 +204,8 @@ export default {
       this.$emit("filter-change", {
         dateRange: this.dateRange,
         selectedColumns: this.selectedColumns,
+        selectedAssignmentTitles: this.selectedAssignmentTitles,
+        selectedStudentIds: this.selectedStudentIds,
       });
       this.showModal = false;
     },

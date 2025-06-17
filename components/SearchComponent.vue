@@ -8,7 +8,7 @@
         type="text"
         class="form-control"
         v-model="searchQuery"
-        placeholder="Search by assignment title or student name..."
+        :placeholder="placeholder"
         @input="handleSearch"
       />
     </div>
@@ -21,6 +21,7 @@ import IconMagnifyingGlass from "~icons/heroicons/magnifying-glass";
 
 const props = defineProps<{
   modelValue: string;
+  placeholder?: string;
 }>();
 
 const emit = defineEmits<{

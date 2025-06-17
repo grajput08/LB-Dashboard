@@ -4,16 +4,23 @@
     <div
       class="d-flex justify-content-between align-items-center pt-space-sm pb-space-sm"
     >
-      <h1 class="h4 m-0 text-dark">Student Dashboard</h1>
+      <h1 class="h4 m-0 text-dark">Instructor Dashboard</h1>
     </div>
 
     <!-- Search and Filter Row -->
     <div class="row mb-space-xxs align-items-center">
       <div class="col-6 col-md-4">
-        <SearchComponent v-model="searchQuery" @search="handleSearch" />
+        <SearchComponent
+          v-model="searchQuery"
+          @search="handleSearch"
+          placeholder="Search by assignment title or student name..."
+        />
       </div>
       <div class="col-6 col-md-2 ms-auto text-end">
-        <FilterButton @filter-change="handleFilterChange" />
+        <FilterButton
+          :assignments="assignments"
+          @filter-change="handleFilterChange"
+        />
       </div>
     </div>
 
@@ -298,7 +305,7 @@ export default {
       assignments: assignmentsData.assignments,
       filteredAssignments: assignmentsData.assignments,
       currentPage: 1,
-      pageSize: 8,
+      pageSize: 12,
       searchQuery: "",
       dateFilter: null,
       selectedColumns: [
@@ -310,6 +317,8 @@ export default {
       ],
       sortColumn: null,
       sortDirection: "asc",
+      selectedAssignmentTitles: [],
+      selectedStudentIds: [],
     };
   },
   computed: {
@@ -358,6 +367,8 @@ export default {
         "artist",
         "submittedAt",
       ];
+      this.selectedAssignmentTitles = filters?.selectedAssignmentTitles || [];
+      this.selectedStudentIds = filters?.selectedStudentIds || [];
       this.applyFilters();
       this.applySorting();
       this.currentPage = 1;
@@ -385,6 +396,23 @@ export default {
           const submittedDate = new Date(assignment.submittedAt);
           return submittedDate >= startDate && submittedDate <= endDate;
         });
+      }
+
+      // Apply assignment title multi-select filter
+      if (
+        this.selectedAssignmentTitles &&
+        this.selectedAssignmentTitles.length > 0
+      ) {
+        filtered = filtered.filter((assignment) =>
+          this.selectedAssignmentTitles.includes(assignment.title)
+        );
+      }
+
+      // Apply student multi-select filter
+      if (this.selectedStudentIds && this.selectedStudentIds.length > 0) {
+        filtered = filtered.filter((assignment) =>
+          this.selectedStudentIds.includes(assignment.studentName)
+        );
       }
 
       this.filteredAssignments = filtered;
