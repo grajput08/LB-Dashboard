@@ -230,9 +230,24 @@
                       <div class="card mb-space-xxs">
                         <div class="card-body">
                           <h5 class="card-title">Instructor Feedback</h5>
-                          <p class="fst-italic">
+                          <!-- <p class="fst-italic">
                             {{ assignment.instructorFeedback }}
-                          </p>
+                          </p> -->
+                          <div class="mb-space-xxs">
+                            <textarea
+                              v-model="feedbackInputs[assignment.id]"
+                              class="form-control"
+                              rows="2"
+                              placeholder="Type feedback here..."
+                              @focus="initializeFeedbackInput(assignment)"
+                            ></textarea>
+                          </div>
+                          <button
+                            class="btn btn-primary btn-sm"
+                            @click="sendFeedback(assignment.id)"
+                          >
+                            Send
+                          </button>
                         </div>
                       </div>
                     </div>
@@ -319,6 +334,7 @@ export default {
       sortDirection: "asc",
       selectedAssignmentTitles: [],
       selectedStudentIds: [],
+      feedbackInputs: {}, // Track feedback input per assignment
     };
   },
   computed: {
@@ -451,6 +467,33 @@ export default {
         this.openAccordion = null;
       } else {
         this.openAccordion = index;
+      }
+    },
+    sendFeedback(assignmentId) {
+      const feedback = this.feedbackInputs[assignmentId]?.trim();
+      if (!feedback) return;
+      // Find assignment and update feedback
+      const assignment = this.assignments.find((a) => a.id === assignmentId);
+      if (assignment) {
+        assignment.instructorFeedback = feedback;
+      }
+      // Also update in filteredAssignments
+      const filtered = this.filteredAssignments.find(
+        (a) => a.id === assignmentId
+      );
+      if (filtered) {
+        filtered.instructorFeedback = feedback;
+      }
+      // Clear input
+      this.$set(this.feedbackInputs, assignmentId, feedback);
+    },
+    initializeFeedbackInput(assignment) {
+      if (this.feedbackInputs[assignment.id] === undefined) {
+        this.$set(
+          this.feedbackInputs,
+          assignment.id,
+          assignment.instructorFeedback || ""
+        );
       }
     },
   },
